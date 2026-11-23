@@ -4,12 +4,19 @@
   "description": "this is the server of template",
   "license": "ISC",
   "author": "shamim",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/app.ts",
   "scripts": {
+    "dev": "tsx --watch src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "tsx": "^4.23.15"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
   }
 }
