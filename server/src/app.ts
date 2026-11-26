@@ -1,19 +1,22 @@
 import cors from 'cors';
-import express, {
-  Router,
-  type Express,
-  type Request,
-  type Response,
-} from 'express';
+import { app } from './server.ts';
 
-const app: Express = express();
+import express, { Router, type Request, type Response } from 'express';
+import helmet from 'helmet';
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(Router({ caseSensitive: true, strict: true }));
+app.use(helmet());
+
+app.get('/routes', (req: Request, res: Response) => {
+  res.status(200).json({
+    routes: ['/user'],
+  });
+});
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello shamim!!');
 });
 
-app.listen(5000);
